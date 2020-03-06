@@ -13,13 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',  [
-    'as' => 'home',
-    function(){
-      return '제 이름은 "home" 입니다';
-    }
-]);
+// with()메서드를 이용
+Route::get('/', function(){
+  return view('welcome')->with([
+    'name' => 'Foo',
+    'greeting' => '안녕하세요',
+  ]);
+});
 
-Route::get('/home', function(){
-  return redirect(route('home'));
+// view()함수의 두 번째 인자로 넘기는 방법
+Route::get('/', function(){
+  return view('welcome',[
+    'name' => 'Foo',
+    'greeting' => '안녕하세요',
+  ]);
 });
