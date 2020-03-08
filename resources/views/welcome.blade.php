@@ -7,7 +7,7 @@
 @endsection
 
 @section('content')
-  @include('partials.footer');
+  @include('partials.footer')
 @endsection
 
 @section('script')
